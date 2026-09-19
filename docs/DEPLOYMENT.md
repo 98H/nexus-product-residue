@@ -1,40 +1,23 @@
 # Deployment & Operations Guide: Product Residue
 
-## 🚀 Live Access & URLs
-- **Live Public Access URL:** [/preview/prod-product-residue-1ef938/](/preview/prod-product-residue-1ef938/)
-- **Internal Port:** `0`
+## 🚀 Live Access URLs
+- **Public Preview URL:** [https://river-alternatives-isolated-parker.trycloudflare.com/preview/prod-product-residue-1ef938/](https://river-alternatives-isolated-parker.trycloudflare.com/preview/prod-product-residue-1ef938/)
+- **Local Gateway Path:** [/preview/prod-product-residue-1ef938/](/preview/prod-product-residue-1ef938/)
+- **Internal Port:** `8106`
+- **Process PID:** `545777`
 - **Runtime Engine:** `python_preview`
-- **Deployment Status:** `DEPLOYED / ACTIVE`
-- **Timestamp:** `2026-09-19T16:46:57.675072+00:00`
+- **Health Status:** `HEALTHY (HTTP 200)`
+- **Deployed Timestamp:** `2026-09-19T16:47:01.334590+00:00`
 
-## 🛠️ Management & Service Control
-### Launch Command
+## 📋 Execution Command
 ```bash
-python3 app.py --port 0
+/usr/local/lib/hermes-agent/venv/bin/python3 app.py --port 8106
 ```
 
-### Health Check Probe
+## 🩺 Health Check Verification
 ```bash
-curl -I http://127.0.0.1:0/
+curl -I http://127.0.0.1:8106/
 ```
 
-### Systemd Service Template
-```ini
-[Unit]
-Description=Product Residue Service
-After=network.target
-
-[Service]
-Type=simple
-WorkingDirectory=/tmp/pytest-of-root/pytest-3/test_worktree_zero_residue_cle0/workspaces/prod-product-residue-1ef938
-ExecStart=/usr/bin/python3 /tmp/pytest-of-root/pytest-3/test_worktree_zero_residue_cle0/workspaces/prod-product-residue-1ef938/app.py
-Restart=always
-RestartSec=3
-
-[Install]
-WantedBy=multi-user.target
-```
-
-## 🔒 Production Security Protocols
-- HTTP-only reverse proxy via Nexus Gateway.
-- Dedicated port allocation with zero port conflict.
+## 📜 Live Deployment Logs
+Logs are stored at `/tmp/pytest-of-root/pytest-3/test_worktree_zero_residue_cle0/workspaces/prod-product-residue-1ef938/logs/deploy.log`.
